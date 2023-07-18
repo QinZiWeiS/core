@@ -200,6 +200,10 @@
       "version": "2.24.2",
       "entry": ["browser", "common"]
     },
+    "@opensumi/ide-timeline": {
+      "version": "2.24.2",
+      "entry": ["browser", "common"]
+    },
     "@opensumi/ide-toolbar": {
       "version": "2.24.2",
       "entry": ["browser"]
@@ -284,6 +288,7 @@
     "@opensumi/ide-terminal-next": "2.24.2",
     "@opensumi/ide-testing": "2.24.2",
     "@opensumi/ide-theme": "2.24.2",
+    "@opensumi/ide-timeline": "2.24.2",
     "@opensumi/ide-toolbar": "2.24.2",
     "@opensumi/sumi": "2.24.2",
     "@opensumi/ide-userstorage": "2.24.2",

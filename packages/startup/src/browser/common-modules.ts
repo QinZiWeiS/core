@@ -35,6 +35,7 @@ import { TaskModule } from '@opensumi/ide-task/lib/browser';
 import { TerminalNextModule } from '@opensumi/ide-terminal-next/lib/browser';
 import { TestingModule } from '@opensumi/ide-testing/lib/browser';
 import { ThemeModule } from '@opensumi/ide-theme/lib/browser';
+import { TimeLineModule } from '@opensumi/ide-timeline';
 import { ToolbarModule } from '@opensumi/ide-toolbar/lib/browser';
 import { VariableModule } from '@opensumi/ide-variable/lib/browser';
 import { WebviewModule } from '@opensumi/ide-webview';
@@ -89,4 +90,7 @@ export const CommonBrowserModules: ConstructorOf<BrowserModule>[] = [
   CommentsModule,
   TaskModule,
   TestingModule,
+
+  // timeline
+  TimeLineModule,
 ];

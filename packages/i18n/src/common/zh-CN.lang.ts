@@ -862,6 +862,8 @@ export const localizationBundle = {
     'toolbar-customize.complete': '完成',
     'toolbar.customize.menu': '自定义工具栏...',
 
+    'timeline.title': '时间线',
+
     'editor.toggleWordWrap': '切换自动换行',
 
     'workbench.uploadingFiles': '{0} 个文件上传中 {1}/s',

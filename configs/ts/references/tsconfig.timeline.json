@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "../../../packages/timeline/src",
+    "outDir": "../../../packages/timeline/lib"
+  },
+  "include": ["../../../packages/timeline/src"],
+  "exclude": ["../../../packages/timeline/__mocks__"]
+}

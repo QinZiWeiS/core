@@ -105,6 +105,8 @@
       "@opensumi/ide-testing/lib/*": ["../packages/testing/src/*"],
       "@opensumi/ide-theme": ["../packages/theme/src/index.ts"],
       "@opensumi/ide-theme/lib/*": ["../packages/theme/src/*"],
+      "@opensumi/ide-timeline": ["../packages/timeline/src/index.ts"],
+      "@opensumi/ide-timeline/lib/*": ["../packages/timeline/src/*"],
       "@opensumi/ide-toolbar": ["../packages/toolbar/src/index.ts"],
       "@opensumi/ide-toolbar/lib/*": ["../packages/toolbar/src/*"],
       "@opensumi/sumi": ["../packages/types/src/index.ts"],

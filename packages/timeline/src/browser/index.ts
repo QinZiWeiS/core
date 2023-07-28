@@ -9,8 +9,7 @@ import { BrowserEditorContribution } from '@opensumi/ide-editor/lib/browser/type
 import { ITimeLineService } from '../common';
 
 import { TimeLineContribution } from './timeline.contribution';
-import { TimeLineService } from './timeline.servie';
-
+import { TimeLineService } from './timeline.service';
 
 @Injectable()
 export class TimeLineModule extends BrowserModule {

@@ -1246,7 +1246,7 @@ export const localizationBundle = {
     'toolbar-customize.complete': 'Complete',
     'toolbar.customize.menu': 'Customize Toolbar...',
 
-    'timeline.title': 'Timeline',
+    'timeline.title': 'TimeLine',
 
     'workbench.uploadingFiles': '{0} Files Uploading {1}/s',
     'workspace.development.title': 'Extension Development Host',

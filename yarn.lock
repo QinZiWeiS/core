@@ -3562,6 +3562,8 @@ __metadata:
 "@opensumi/ide-timeline@workspace:*, @opensumi/ide-timeline@workspace:packages/timeline":
   version: 0.0.0-use.local
   resolution: "@opensumi/ide-timeline@workspace:packages/timeline"
+  dependencies:
+    "@opensumi/ide-core-browser": "workspace:*"
   languageName: unknown
   linkType: soft
 

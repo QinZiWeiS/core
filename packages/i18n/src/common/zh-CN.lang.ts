@@ -863,6 +863,7 @@ export const localizationBundle = {
     'toolbar.customize.menu': '自定义工具栏...',
 
     'timeline.title': '时间线',
+    'timeline.noFile': '活动编辑器无法提供时间线信息',
 
     'editor.toggleWordWrap': '切换自动换行',
 

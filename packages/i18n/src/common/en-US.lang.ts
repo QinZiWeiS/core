@@ -1247,6 +1247,7 @@ export const localizationBundle = {
     'toolbar.customize.menu': 'Customize Toolbar...',
 
     'timeline.title': 'TimeLine',
+    'timeline.noFile': 'The activity editor cannot provide timeline information',
 
     'workbench.uploadingFiles': '{0} Files Uploading {1}/s',
     'workspace.development.title': 'Extension Development Host',

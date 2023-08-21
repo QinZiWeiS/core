@@ -1,3 +1,4 @@
+import moment from 'moment';
 import * as React from 'react';
 
 import { ViewState, localize, useInjectable } from '@opensumi/ide-core-browser';
@@ -18,28 +19,38 @@ export const TimeLine = ({ viewState }: React.PropsWithChildren<{ viewState: Vie
   const { getTimeLineInfo } = useInjectable<ITimeLineService>(ITimeLineService);
   const editorService = useInjectable<WorkbenchEditorService>(WorkbenchEditorService);
 
-  const [data, setData] = React.useState<any>([]);
+  const [data, setData] = React.useState<any>();
+  const [hasLocalHistory, setHasLocalHistory] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const currentResourcePath = editorService.currentResource?.uri.codeUri.path;
     const localhistoryPath = currentResourcePath?.replace('/tools/workspace', '/.localhistory');
 
     if (currentResourcePath && localhistoryPath) {
-      getTimeLineInfo(localhistoryPath).then((res) => {
-        setData(JSON.parse(res.content.buffer.toString()));
-      });
+      getTimeLineInfo(localhistoryPath)
+        .then((res) => {
+          setData(JSON.parse(res.content.buffer.toString()));
+          setHasLocalHistory(true);
+        })
+        .catch(() => {
+          setHasLocalHistory(false);
+        });
     }
   }, []);
 
   const template = ({ data, index }: { data: ITimeLineNode; index: number }) => (
     <div className={styles.timeline_node} key={`${index}`}>
       <div className={styles.timeline_node_type}>{data.type}</div>
-      <div className={styles.timeline_node_time}>{data.time}</div>
+      <div className={styles.timeline_node_time}>{moment(data.time).fromNow()}</div>
     </div>
   );
 
   return editorService.currentResource ? (
-    <RecycleList height={height} width={width} itemHeight={24} data={data} template={template} />
+    hasLocalHistory ? (
+      <RecycleList height={height} width={width} itemHeight={24} data={data} template={template} />
+    ) : (
+      <div className={styles.timeline_noFile}>{localize('timeline.noLocalHistory')}</div>
+    )
   ) : (
     <div className={styles.timeline_noFile}>{localize('timeline.noFile')}</div>
   );

@@ -5,9 +5,8 @@ import { ViewState, localize, useInjectable } from '@opensumi/ide-core-browser';
 import { RecycleList } from '@opensumi/ide-core-browser/lib/components';
 import { WorkbenchEditorService } from '@opensumi/ide-editor';
 
-import { ITimeLineService } from '../common';
-
 import * as styles from './timeline.module.less';
+import { TimeLineService } from './timeline.service';
 
 export interface ITimeLineNode {
   type: string;
@@ -16,13 +15,26 @@ export interface ITimeLineNode {
 
 export const TimeLine = ({ viewState }: React.PropsWithChildren<{ viewState: ViewState }>) => {
   const { width, height } = viewState;
-  const { getTimeLineInfo } = useInjectable<ITimeLineService>(ITimeLineService);
+  const { getTimeLineInfo, onDidSaved } = useInjectable<TimeLineService>(TimeLineService);
   const editorService = useInjectable<WorkbenchEditorService>(WorkbenchEditorService);
 
   const [data, setData] = React.useState<any>();
   const [hasLocalHistory, setHasLocalHistory] = React.useState<boolean>(false);
 
   React.useEffect(() => {
+    renderTimeline();
+  }, []);
+
+  React.useEffect(() => {
+    const disposable = onDidSaved((value: string) => {
+      renderTimeline();
+    });
+    return () => {
+      disposable.dispose();
+    };
+  }, [data]);
+
+  const renderTimeline = () => {
     const currentResourcePath = editorService.currentResource?.uri.codeUri.path;
     const localhistoryPath = currentResourcePath?.replace('/tools/workspace', '/.localhistory');
 
@@ -36,11 +48,11 @@ export const TimeLine = ({ viewState }: React.PropsWithChildren<{ viewState: Vie
           setHasLocalHistory(false);
         });
     }
-  }, []);
+  };
 
   const template = ({ data, index }: { data: ITimeLineNode; index: number }) => (
     <div className={styles.timeline_node} key={`${index}`}>
-      <div className={styles.timeline_node_type}>{data.type}</div>
+      <div className={styles.timeline_node_type}>{localize(`timeline.${data.type}`)}</div>
       <div className={styles.timeline_node_time}>{moment(data.time).fromNow()}</div>
     </div>
   );

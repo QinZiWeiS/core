@@ -1,3 +1,5 @@
+import { Event } from '@opensumi/ide-core-browser';
+
 export const TIMELINE_VIEW_ID = 'timeline-view';
 
 export interface ITimeLineService {

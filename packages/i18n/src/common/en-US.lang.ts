@@ -1248,6 +1248,9 @@ export const localizationBundle = {
 
     'timeline.title': 'TimeLine',
     'timeline.noFile': 'The activity editor cannot provide timeline information',
+    'timeline.noLocalHistory': 'No local history information',
+    'timeline.save': 'Saved',
+    'timeline.create': 'Created',
 
     'workbench.uploadingFiles': '{0} Files Uploading {1}/s',
     'workspace.development.title': 'Extension Development Host',

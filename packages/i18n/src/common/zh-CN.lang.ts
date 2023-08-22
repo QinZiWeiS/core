@@ -864,6 +864,9 @@ export const localizationBundle = {
 
     'timeline.title': '时间线',
     'timeline.noFile': '活动编辑器无法提供时间线信息',
+    'timeline.noLocalHistory': '未提供时间表信息',
+    'timeline.save': '已保存文件',
+    'timeline.create': '已创建文件',
 
     'editor.toggleWordWrap': '切换自动换行',
 
